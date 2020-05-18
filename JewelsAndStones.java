@@ -1,21 +1,18 @@
-/* The isBadVersion API is defined in the parent class VersionControl.
-      boolean isBadVersion(int version); */
-
-public class Solution extends VersionControl {
-    public int firstBadVersion(int n) {
-        int low=1;
-        int high = n;
-        while(low<high)
-        {
-            int mid=low+(high-low)/2;
-            if(isBadVersion(mid))
-            {
-                high=mid;
-            }
-            else
-                low=mid+1;
-        }
-        return low;
+class Solution {
+    public int numJewelsInStones(String J, String S) {
+      int count=0;
         
+        HashSet<Character> h= new HashSet<Character>();
+        
+        for(int i=0;i<J.length();i++)
+        {
+            h.add(J.charAt(i));
         }
+        for(int i=0;i<S.length();i++)
+        {
+            if(h.contains(S.charAt(i)))
+            count++;
+        }
+        return count;
+    }
 }
