@@ -1,0 +1,15 @@
+class Solution(object):
+    def reverse(self, x):
+        t=''
+        for c in str(x):
+            t = c + t
+        if(t[-1] is '-'):
+            t = t[0:-1]
+            if(int(t) < 2147483648):
+                return int(t) * -1
+            else:
+                return 0
+        elif(int(t) < 2147483648):
+                return int(t)
+        else: 
+            return 0
